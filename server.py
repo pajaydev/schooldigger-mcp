@@ -1,7 +1,10 @@
+"""Schooldigger MCP Server.
+An MCP server with all the tools to interact with school and district data API.
+"""
+
 import os
 import requests
 import logging
-import sys
 from typing import Dict, List, Optional, Any, Union
 from fastmcp import FastMCP
 from dotenv import load_dotenv
@@ -34,6 +37,7 @@ def call_school_digger_api(endpoint: str, params: Dict = None):
 
 @mcp.tool()
 def search_schools(
+    query: Optional[str] = None,
     city: Optional[str] = None,
     state: Optional[str] = None,
     zip_code: Optional[str] = None,
@@ -46,6 +50,7 @@ def search_schools(
     Results are ranked by statewide performance.
 
     Args:
+        query: Partial school name to search (e.g., "Lincoln").
         city: City name (e.g., "Cypress").
         state: Two-letter US state code like CA, NY, TX (required).
         zip_code: ZIP code (e.g., "77433").
@@ -56,6 +61,8 @@ def search_schools(
         A list of schools sorted by rank (best first).
     """
     params = {'perPage': per_page, 'sortBy': sort_by}
+    if query:
+        params['q'] = query
     if city:
         params['city'] = city
     if state:

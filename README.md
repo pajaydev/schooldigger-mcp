@@ -1,15 +1,15 @@
-# SchoolDigger MCP Server
+# 🏫 SchoolDigger MCP Server
 
 An MCP server to interact with [SchoolDigger's](https://www.schooldigger.com/) school and district data API.
 
 ## Features
 
-- Search schools by name and location
-- Get detailed school information
-- Find schools by zip code
-- Get best ranked schools by city
-- Search school districts
-- Filter schools within districts
+- 🔍 Search schools by name and location
+- 📊 Get detailed school information
+- 📍Find schools by zip code
+- 🏆 Get best ranked schools by city
+- 🏛️ Search school districts
+- 🎯 Filter schools within districts
 
 ## Quick start
 
@@ -43,10 +43,11 @@ git clone https://github.com/pajaydev/schooldigger-mcp.git
 cd schooldigger-mcp
 ```
 
-1. Install the dependencies
+2. Install the dependencies
 
 ```bash
 uv sync
+uv add pytest  # For testing
 ```
 
 2. Run the server
